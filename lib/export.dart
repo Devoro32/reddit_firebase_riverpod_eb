@@ -8,6 +8,7 @@ export 'package:reddit_fb_rp/features/auth/controller/auth_controller.dart';
 
 //features\auth\controller\auth_controller
 //packages
+
 export 'package:flutter/material.dart';
 export 'package:hooks_riverpod/hooks_riverpod.dart';
 export 'package:shared_preferences/shared_preferences.dart';
@@ -17,6 +18,9 @@ export 'package:cloud_firestore/cloud_firestore.dart';
 export 'package:firebase_core/firebase_core.dart';
 export 'package:firebase_storage/firebase_storage.dart';
 export 'package:reddit_fb_rp/firebase_options.dart';
+
+//model
+export 'package:reddit_fb_rp/models/user_model.dart';
 
 //providers
 export 'package:reddit_fb_rp/core/provider/firebase_provider.dart';

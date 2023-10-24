@@ -18,6 +18,8 @@ class AuthRepository {
   final FirebaseAuth _auth;
   final GoogleSignIn _googleSignIn;
 
+  CollectionReference get _users => _firestore.collection('users');
+
   AuthRepository({
     required FirebaseFirestore firestore,
     required FirebaseAuth auth,
@@ -37,9 +39,20 @@ class AuthRepository {
 //completed
       UserCredential userCredential =
           await _auth.signInWithCredential(credential);
-      print("User credential: $userCredential");
+      /* print("User credential: $userCredential");
       print("userCredential.user?.email: ${userCredential.user?.email}");
       print("userCredential.user: ${userCredential.user}");
+      */
+      //https://youtu.be/B8Sx7wGiY-s?t=4325
+      UserModel userModel = UserModel(
+        name: userCredential.user!.displayName!,
+        profilePic: userCredential.user!.photoURL ?? Constants.avatarDefault,
+        banner: Constants.bannerDefault,
+        uid: userCredential.user!.uid,
+        isAuthenticated: true,
+        karma: 0,
+        awards: [],
+      );
     } catch (e) {
       print("Error: $e");
     }
