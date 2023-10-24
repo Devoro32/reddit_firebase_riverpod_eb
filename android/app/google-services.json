@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "239270163553",
+    "project_id": "redditfirebaseriverpodeb",
+    "storage_bucket": "redditfirebaseriverpodeb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:239270163553:android:ed64263e170f64e6f86620",
+        "android_client_info": {
+          "package_name": "com.example.reddit_fb_rp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyClwUYXazVeezA597XNPQZXjqBTMSdOulM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
