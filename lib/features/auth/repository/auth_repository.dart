@@ -34,7 +34,7 @@ class AuthRepository {
         accessToken: (googleAuth)?.accessToken,
         idToken: (googleAuth)?.idToken,
       );
-
+//completed
       UserCredential userCredential =
           await _auth.signInWithCredential(credential);
       print("User credential: $userCredential");
