@@ -1,5 +1,6 @@
 //constants
 export 'package:reddit_fb_rp/core/constants/constants.dart';
+export 'package:reddit_fb_rp/core/constants/firebase_constants.dart';
 
 //common
 export 'package:reddit_fb_rp/core/common/sign_in_button.dart';
@@ -18,7 +19,9 @@ export 'package:cloud_firestore/cloud_firestore.dart';
 export 'package:firebase_core/firebase_core.dart';
 export 'package:firebase_storage/firebase_storage.dart';
 export 'package:reddit_fb_rp/firebase_options.dart';
-
+export 'package:reddit_fb_rp/core/type_defs.dart';
+export 'package:reddit_fb_rp/core/failure.dart';
+export 'package:reddit_fb_rp/core/utilis.dart';
 //model
 export 'package:reddit_fb_rp/models/user_model.dart';
 

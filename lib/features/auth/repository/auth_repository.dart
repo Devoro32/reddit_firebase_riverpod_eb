@@ -1,4 +1,5 @@
 import 'package:reddit_fb_rp/export.dart';
+import 'package:fpdart/fpdart.dart';
 //logic for the firebase calls
 //https://youtu.be/B8Sx7wGiY-s?t=2200
 
@@ -18,8 +19,6 @@ class AuthRepository {
   final FirebaseAuth _auth;
   final GoogleSignIn _googleSignIn;
 
-  CollectionReference get _users => _firestore.collection('users');
-
   AuthRepository({
     required FirebaseFirestore firestore,
     required FirebaseAuth auth,
@@ -28,7 +27,13 @@ class AuthRepository {
         _firestore = firestore,
         _googleSignIn = googleSignIn;
 
-  void signInWithGoogle() async {
+  CollectionReference get _users => _firestore.collection(
+        FirebaseConstants.usersCollection,
+      );
+
+//https://youtu.be/B8Sx7wGiY-s?t=5085
+//*with either, you indicate the type of failure vs success
+  FutureEither<UserModel> signInWithGoogle() async {
     try {
       final GoogleSignInAccount? googleUser = await _googleSignIn.signIn();
       final googleAuth = await googleUser?.authentication;
@@ -43,17 +48,30 @@ class AuthRepository {
       print("userCredential.user?.email: ${userCredential.user?.email}");
       print("userCredential.user: ${userCredential.user}");
       */
-      //https://youtu.be/B8Sx7wGiY-s?t=4325
-      UserModel userModel = UserModel(
-        name: userCredential.user!.displayName!,
-        profilePic: userCredential.user!.photoURL ?? Constants.avatarDefault,
-        banner: Constants.bannerDefault,
-        uid: userCredential.user!.uid,
-        isAuthenticated: true,
-        karma: 0,
-        awards: [],
-      );
+      late UserModel userModel;
+      //https://youtu.be/B8Sx7wGiY-s?t=4741
+      if (userCredential.additionalUserInfo!.isNewUser) {
+        //https://youtu.be/B8Sx7wGiY-s?t=4325
+        userModel = UserModel(
+          name: userCredential.user!.displayName!,
+          profilePic: userCredential.user!.photoURL ?? Constants.avatarDefault,
+          banner: Constants.bannerDefault,
+          uid: userCredential.user!.uid,
+          isAuthenticated: true,
+          karma: 0,
+          awards: [],
+        );
+        await _users.doc(userCredential.user!.uid).set(userModel.toMap());
+      }
+      //* this is due to the typedef and indicate that it is a success
+      //https://youtu.be/B8Sx7wGiY-s?t=5300
+      return right(userModel);
+      //TODO: If not a new user;
+    } on FirebaseException catch (e) {
+      //throw ensure that it goes to the next catch blocks
+      throw e.message!;
     } catch (e) {
+      return left(Failure(e.toString()));
       print("Error: $e");
     }
   }
