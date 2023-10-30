@@ -30,6 +30,9 @@ class AuthRepository {
   CollectionReference get _users => _firestore.collection(
         FirebaseConstants.usersCollection,
       );
+  //https://youtu.be/B8Sx7wGiY-s?t=7087
+  //seeing if there are any changes to the auth state (user login or out)
+  Stream<User?> get authStateChange => _auth.authStateChanges();
 
 //https://youtu.be/B8Sx7wGiY-s?t=5085
 //*with either, you indicate the type of failure vs success
@@ -48,7 +51,7 @@ class AuthRepository {
       print("userCredential.user?.email: ${userCredential.user?.email}");
       print("userCredential.user: ${userCredential.user}");
       */
-      late UserModel userModel;
+      UserModel userModel;
       //https://youtu.be/B8Sx7wGiY-s?t=4741
       if (userCredential.additionalUserInfo!.isNewUser) {
         //https://youtu.be/B8Sx7wGiY-s?t=4325
@@ -62,7 +65,11 @@ class AuthRepository {
           awards: [],
         );
         await _users.doc(userCredential.user!.uid).set(userModel.toMap());
+      } else {
+        //* user already created a google account or login via the google account
+        userModel = await getUserData(userCredential.user!.uid).first;
       }
+
       //* this is due to the typedef and indicate that it is a success
       //https://youtu.be/B8Sx7wGiY-s?t=5300
       return right(userModel);
@@ -71,8 +78,16 @@ class AuthRepository {
       //throw ensure that it goes to the next catch blocks
       throw e.message!;
     } catch (e) {
-      return left(Failure(e.toString()));
       print("Error: $e");
+      return left(Failure(e.toString()));
     }
+  }
+
+//https://youtu.be/B8Sx7wGiY-s?t=5635
+//* using stream because we are persisting the user data
+  Stream<UserModel> getUserData(String uid) {
+    return _users.doc(uid).snapshots().map(
+          (event) => UserModel.fromMap(event.data() as Map<String, dynamic>),
+        );
   }
 }

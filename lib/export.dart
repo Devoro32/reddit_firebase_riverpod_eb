@@ -4,10 +4,15 @@ export 'package:reddit_fb_rp/core/constants/firebase_constants.dart';
 
 //common
 export 'package:reddit_fb_rp/core/common/sign_in_button.dart';
+export 'package:reddit_fb_rp/core/common/loader.dart';
+export 'package:reddit_fb_rp/core/common/error_text.dart';
+
 //controller
 export 'package:reddit_fb_rp/features/auth/controller/auth_controller.dart';
 
-//features\auth\controller\auth_controller
+//features
+export 'package:reddit_fb_rp/features/home/home_screen.dart';
+
 //packages
 
 export 'package:flutter/material.dart';
@@ -22,6 +27,7 @@ export 'package:reddit_fb_rp/firebase_options.dart';
 export 'package:reddit_fb_rp/core/type_defs.dart';
 export 'package:reddit_fb_rp/core/failure.dart';
 export 'package:reddit_fb_rp/core/utilis.dart';
+export 'package:routemaster/routemaster.dart';
 //model
 export 'package:reddit_fb_rp/models/user_model.dart';
 
@@ -30,6 +36,9 @@ export 'package:reddit_fb_rp/core/provider/firebase_provider.dart';
 
 //Repository
 export 'package:reddit_fb_rp/features/auth/repository/auth_repository.dart';
+
+//route
+export 'package:reddit_fb_rp/routes.dart';
 
 //screens
 export 'package:reddit_fb_rp/features/auth/screens/login_screen.dart';

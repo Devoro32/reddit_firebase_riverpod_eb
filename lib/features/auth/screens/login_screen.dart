@@ -1,10 +1,11 @@
 import 'package:reddit_fb_rp/export.dart';
 
-class LoginScreen extends StatelessWidget {
+class LoginScreen extends ConsumerWidget {
   const LoginScreen({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final isLoading = ref.watch(authControllerProvider);
     return Scaffold(
       appBar: AppBar(
         title: Image.asset(
@@ -23,27 +24,29 @@ class LoginScreen extends StatelessWidget {
           ),
         ],
       ),
-      body: Column(children: [
-        const SizedBox(height: 30),
-        const Text(
-          'Dive into anything',
-          style: TextStyle(
-            fontWeight: FontWeight.bold,
-            fontSize: 24,
-            letterSpacing: 0.5,
-          ),
-        ),
-        const SizedBox(height: 30),
-        Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Image.asset(
-            Constants.loginEmotePath,
-            height: 400,
-          ),
-        ),
-        const SizedBox(height: 20),
-        SignInButton(),
-      ]),
+      body: isLoading
+          ? const Loader()
+          : Column(children: [
+              const SizedBox(height: 30),
+              const Text(
+                'Dive into anything',
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 24,
+                  letterSpacing: 0.5,
+                ),
+              ),
+              const SizedBox(height: 30),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Image.asset(
+                  Constants.loginEmotePath,
+                  height: 400,
+                ),
+              ),
+              const SizedBox(height: 20),
+              SignInButton(),
+            ]),
     );
   }
 }

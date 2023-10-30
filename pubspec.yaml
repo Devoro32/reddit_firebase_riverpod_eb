@@ -43,6 +43,7 @@ dependencies:
   firebase_storage: ^11.3.1 #to store files in firebase
   google_sign_in: ^6.1.5 #to login to google
   fpdart: ^1.1.0
+  routemaster: ^1.0.1
 
 dev_dependencies:
   flutter_test:
