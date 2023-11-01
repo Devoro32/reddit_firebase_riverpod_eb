@@ -8,9 +8,9 @@ final loggedOutRoute = RouteMap(routes: {
 
 //login route
 final loggedInRoute = RouteMap(routes: {
-  '/': (_) => const MaterialPage(
-        child: HomeScreen(),
-      )
+  '/': (_) => const MaterialPage(child: HomeScreen()),
+  '/create-community': (_) =>
+      const MaterialPage(child: CreateCommunityScreen()),
 });
 
 //login route

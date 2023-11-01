@@ -7,8 +7,14 @@ export 'package:reddit_fb_rp/core/common/sign_in_button.dart';
 export 'package:reddit_fb_rp/core/common/loader.dart';
 export 'package:reddit_fb_rp/core/common/error_text.dart';
 
+//community
+export 'package:reddit_fb_rp/features/community/screens/create_community_screen.dart';
+
 //controller
 export 'package:reddit_fb_rp/features/auth/controller/auth_controller.dart';
+
+//drawers
+export 'package:reddit_fb_rp/features/home/drawers/community_list_drawers.dart';
 
 //features
 export 'package:reddit_fb_rp/features/home/home_screen.dart';

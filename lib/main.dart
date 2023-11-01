@@ -41,13 +41,15 @@ class _MyAppState extends ConsumerState<MyApp> {
             title: 'Reddit Tutorial',
             theme: Pallete.darkModeAppTheme,
             routerDelegate: RoutemasterDelegate(routesBuilder: (context) {
-              if (data != null) {
-                getData(ref, data);
-                if (userModel != null) {
-                  return loggedInRoute;
-                }
-              }
-              return loggedOutRoute;
+              //TODO: uncomment when FB registration is done, going directly to home screen
+              // if (data != null) {
+              //   getData(ref, data);
+              //   if (userModel != null) {
+              //     return loggedInRoute;
+              //   }
+              // }
+              // return loggedOutRoute;
+              return loggedInRoute;
             }),
             routeInformationParser: const RoutemasterParser(),
           ),
