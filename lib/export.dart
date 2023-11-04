@@ -42,6 +42,7 @@ export 'package:reddit_fb_rp/core/provider/firebase_provider.dart';
 
 //Repository
 export 'package:reddit_fb_rp/features/auth/repository/auth_repository.dart';
+export 'package:reddit_fb_rp/features/community/repository/community_repository.dart';
 
 //route
 export 'package:reddit_fb_rp/routes.dart';
