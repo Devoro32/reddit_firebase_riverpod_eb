@@ -18,8 +18,17 @@ class _CreateCommunityScreenState extends ConsumerState<CreateCommunityScreen> {
     commmunityNameController.dispose();
   }
 
+  //https://youtu.be/B8Sx7wGiY-s?t=10304
+  void createCommunity() {
+    ref.read(communityControllerProvider.notifier).createCommunity(
+          commmunityNameController.text.trim(),
+          context,
+        );
+  }
+
   @override
   Widget build(BuildContext context) {
+    final isLoading = ref.watch(communityControllerProvider);
     return Scaffold(
 //https://youtu.be/B8Sx7wGiY-s?t=8860
       appBar: AppBar(
@@ -46,8 +55,11 @@ class _CreateCommunityScreenState extends ConsumerState<CreateCommunityScreen> {
               ),
               maxLength: 21,
             ),
+            const SizedBox(
+              height: 10,
+            ),
             ElevatedButton(
-              onPressed: () {},
+              onPressed: createCommunity,
               style: ElevatedButton.styleFrom(
                 minimumSize: const Size(double.infinity, 50),
                 shape: RoundedRectangleBorder(

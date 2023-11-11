@@ -12,6 +12,7 @@ export 'package:reddit_fb_rp/features/community/screens/create_community_screen.
 
 //controller
 export 'package:reddit_fb_rp/features/auth/controller/auth_controller.dart';
+export 'package:reddit_fb_rp/features/community/controller/community_controller.dart';
 
 //drawers
 export 'package:reddit_fb_rp/features/home/drawers/community_list_drawers.dart';
@@ -36,7 +37,7 @@ export 'package:reddit_fb_rp/core/utilis.dart';
 export 'package:routemaster/routemaster.dart';
 //model
 export 'package:reddit_fb_rp/models/user_model.dart';
-
+export 'package:reddit_fb_rp/models/communities_model.dart';
 //providers
 export 'package:reddit_fb_rp/core/provider/firebase_provider.dart';
 

@@ -9,7 +9,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.example.redditFbRp</string>
+	<string>com.example.redditFbRp.RunnerTests</string>
 	<key>PROJECT_ID</key>
 	<string>redditfirebaseriverpodeb</string>
 	<key>STORAGE_BUCKET</key>
@@ -25,6 +25,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:239270163553:ios:338669900693f1d4f86620</string>
+	<string>1:239270163553:ios:19e35447c415592bf86620</string>
 </dict>
 </plist>
