@@ -41,7 +41,7 @@ class _MyAppState extends ConsumerState<MyApp> {
             title: 'Reddit Tutorial',
             theme: Pallete.darkModeAppTheme,
             routerDelegate: RoutemasterDelegate(routesBuilder: (context) {
-              //TODO: uncomment when FB registration is done, going directly to home screen
+              //TODO: uncomment when FireBase registration is done, going directly to home screen
               // if (data != null) {
               //   getData(ref, data);
               //   if (userModel != null) {

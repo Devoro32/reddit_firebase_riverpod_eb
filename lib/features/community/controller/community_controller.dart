@@ -1,4 +1,10 @@
 import 'package:reddit_fb_rp/export.dart';
+//https://youtu.be/B8Sx7wGiY-s?t=10928
+
+final userCommunitiesProvider = StreamProvider((ref) {
+  final communityController = ref.watch(communityControllerProvider.notifier);
+  return communityController.getUserCommunities();
+});
 
 //https://youtu.be/B8Sx7wGiY-s
 final communityControllerProvider =
@@ -43,5 +49,10 @@ class CommunityController extends StateNotifier<bool> {
       showSnackBar(context, 'Community created successfully!');
       Routemaster.of(context).pop();
     });
+  }
+
+  Stream<List<Community>> getUserCommunities() {
+    final uid = _ref.read(userProvider)!.uid;
+    return _communityRespository.getUserCommunities(uid);
   }
 }
