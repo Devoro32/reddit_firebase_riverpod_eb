@@ -16,6 +16,13 @@ final communityControllerProvider =
   );
 });
 
+//https://youtu.be/B8Sx7wGiY-s?t=11690
+final getCommunityByNameProvider = StreamProvider.family((ref, String name) {
+  return ref
+      .watch(communityControllerProvider.notifier)
+      .getCommunityByName(name);
+});
+
 //https://youtu.be/B8Sx7wGiY-s?t=9967
 
 class CommunityController extends StateNotifier<bool> {
@@ -54,5 +61,10 @@ class CommunityController extends StateNotifier<bool> {
   Stream<List<Community>> getUserCommunities() {
     final uid = _ref.read(userProvider)!.uid;
     return _communityRespository.getUserCommunities(uid);
+  }
+
+  //https://youtu.be/B8Sx7wGiY-s?t=11656
+  Stream<Community> getCommunityByName(String name) {
+    return _communityRespository.getCommunityByName(name);
   }
 }

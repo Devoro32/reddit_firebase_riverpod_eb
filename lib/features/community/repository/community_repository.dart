@@ -50,4 +50,11 @@ class CommunityRespository {
       return communities;
     });
   }
+
+  //https://youtu.be/B8Sx7wGiY-s?t=11577
+  Stream<Community> getCommunityByName(String name) {
+    return _communities.doc(name).snapshots().map(
+          (event) => Community.fromMap(event.data() as Map<String, dynamic>),
+        );
+  }
 }

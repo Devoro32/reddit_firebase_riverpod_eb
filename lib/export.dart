@@ -8,7 +8,6 @@ export 'package:reddit_fb_rp/core/common/loader.dart';
 export 'package:reddit_fb_rp/core/common/error_text.dart';
 
 //community
-export 'package:reddit_fb_rp/features/community/screens/create_community_screen.dart';
 
 //controller
 export 'package:reddit_fb_rp/features/auth/controller/auth_controller.dart';
@@ -50,6 +49,8 @@ export 'package:reddit_fb_rp/routes.dart';
 
 //screens
 export 'package:reddit_fb_rp/features/auth/screens/login_screen.dart';
+export 'package:reddit_fb_rp/features/community/screens/community_screen.dart';
+export 'package:reddit_fb_rp/features/community/screens/create_community_screen.dart';
 
 //theme
 export 'package:reddit_fb_rp/theme/pallete.dart';
