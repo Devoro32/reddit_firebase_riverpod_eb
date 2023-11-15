@@ -34,6 +34,10 @@ export 'package:reddit_fb_rp/core/type_defs.dart';
 export 'package:reddit_fb_rp/core/failure.dart';
 export 'package:reddit_fb_rp/core/utilis.dart';
 export 'package:routemaster/routemaster.dart';
+export 'package:dotted_border/dotted_border.dart';
+export 'package:file_picker/file_picker.dart';
+export 'dart:io';
+
 //model
 export 'package:reddit_fb_rp/models/user_model.dart';
 export 'package:reddit_fb_rp/models/communities_model.dart';
@@ -51,6 +55,8 @@ export 'package:reddit_fb_rp/routes.dart';
 export 'package:reddit_fb_rp/features/auth/screens/login_screen.dart';
 export 'package:reddit_fb_rp/features/community/screens/community_screen.dart';
 export 'package:reddit_fb_rp/features/community/screens/create_community_screen.dart';
+export 'package:reddit_fb_rp/features/community/screens/mod_tools_screen.dart';
+export 'package:reddit_fb_rp/features/community/screens/edit_community_screen.dart';
 
 //theme
 export 'package:reddit_fb_rp/theme/pallete.dart';

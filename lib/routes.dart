@@ -14,7 +14,13 @@ final loggedInRoute = RouteMap(routes: {
   //https://youtu.be/B8Sx7wGiY-s?t=11435#
   //call slugged
   '/r:name': (route) =>
-      MaterialPage(child: CommunityScreen(name: route.pathParameters['name']!))
+      MaterialPage(child: CommunityScreen(name: route.pathParameters['name']!)),
+  '/mod-tools/:name': (routeData) => MaterialPage(
+        child: ModToolsScreen(name: routeData.pathParameters['name']!),
+      ),
+  '/edit-community/:name': (routeData) => MaterialPage(
+        child: EditCommunityScreen(name: routeData.pathParameters['name']!),
+      ),
 });
 
 //login route

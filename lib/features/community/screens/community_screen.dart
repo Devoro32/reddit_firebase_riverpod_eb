@@ -8,9 +8,14 @@ class CommunityScreen extends ConsumerWidget {
     super.key,
     required this.name,
   });
+//https://youtu.be/B8Sx7wGiY-s?t=12835
+  void navigateToModTools(BuildContext context) {
+    Routemaster.of(context).push('/mod-tools/$name');
+  }
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final user = ref.watch(userProvider)!;
     return Scaffold(
       body: ref.watch(getCommunityByNameProvider(name)).when(
             data: (community) => NestedScrollView(
@@ -56,16 +61,34 @@ class CommunityScreen extends ConsumerWidget {
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),
-                              OutlinedButton(
-                                onPressed: () {},
-                                child: const Text('Join'),
-                                style: ElevatedButton.styleFrom(
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(20),
+                              community.mods.contains(user.uid)
+                                  ? OutlinedButton(
+                                      onPressed: () {
+                                        navigateToModTools(context);
+                                      },
+                                      child: const Text('Mod Tools'),
+                                      style: ElevatedButton.styleFrom(
+                                          shape: RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(20),
+                                          ),
+                                          padding: const EdgeInsets.symmetric(
+                                              horizontal: 25)),
+                                    )
+                                  : OutlinedButton(
+                                      onPressed: () {},
+                                      style: ElevatedButton.styleFrom(
+                                          shape: RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(20),
+                                          ),
+                                          padding: const EdgeInsets.symmetric(
+                                              horizontal: 25)),
+                                      child: Text(
+                                          community.members.contains(user.uid)
+                                              ? 'Joined'
+                                              : 'Join'),
                                     ),
-                                    padding: const EdgeInsets.symmetric(
-                                        horizontal: 25)),
-                              ),
                             ],
                           ),
                           Padding(
