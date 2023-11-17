@@ -1,3 +1,4 @@
+import 'package:reddit_fb_rp/core/provider/storage_repository_provider.dart';
 import 'package:reddit_fb_rp/export.dart';
 //https://youtu.be/B8Sx7wGiY-s?t=10928
 
@@ -10,9 +11,12 @@ final userCommunitiesProvider = StreamProvider((ref) {
 final communityControllerProvider =
     StateNotifierProvider<CommunityController, bool>((ref) {
   final communityRespository = ref.watch(communityRepositoryProvider);
+  //https://youtu.be/B8Sx7wGiY-s?t=15224
+  final storageRepository = ref.watch(storageRepositoryProvider);
   return CommunityController(
     communityRespository: communityRespository,
     ref: ref,
+    storageRepository: storageRepository,
   );
 });
 
@@ -28,12 +32,17 @@ final getCommunityByNameProvider = StreamProvider.family((ref, String name) {
 class CommunityController extends StateNotifier<bool> {
   final CommunityRespository _communityRespository;
   final Ref _ref;
+  //https://youtu.be/B8Sx7wGiY-s?t=15201
+  final StorageRepository _storageRepository;
 
   CommunityController({
     required CommunityRespository communityRespository,
+    required StorageRepository storageRepository,
     required Ref ref,
+    //https://youtu.be/B8Sx7wGiY-s?t=15201
   })  : _communityRespository = communityRespository,
         _ref = ref,
+        _storageRepository = storageRepository,
         //https://youtu.be/B8Sx7wGiY-s?t=10279
         //want the state to be false for the loading
         super(false);
@@ -66,5 +75,47 @@ class CommunityController extends StateNotifier<bool> {
   //https://youtu.be/B8Sx7wGiY-s?t=11656
   Stream<Community> getCommunityByName(String name) {
     return _communityRespository.getCommunityByName(name);
+  }
+
+  //https://youtu.be/B8Sx7wGiY-s?t=15063
+  void editCommunity({
+    required File? profileFile,
+    required File? bannerFile,
+    required BuildContext context,
+    required Community community,
+  }) async {
+    state = true;
+    if (profileFile != null) {
+      //https://youtu.be/B8Sx7wGiY-s?t=15287
+      //store the files in communities/profiles/meme
+      final res = await _storageRepository.storeFile(
+        path: 'communities/profile',
+        id: community.name,
+        file: profileFile,
+      );
+      res.fold(
+        (l) => showSnackBar(context, l.message),
+        (r) => community = community.copyWith(avatar: r),
+      );
+    }
+    if (bannerFile != null) {
+      //https://youtu.be/B8Sx7wGiY-s?t=15429
+      final res = await _storageRepository.storeFile(
+        path: 'communities/banner',
+        id: community.name,
+        file: bannerFile,
+      );
+      res.fold(
+        (l) => showSnackBar(context, l.message),
+        (r) => community = community.copyWith(banner: r),
+      );
+    }
+
+    final res = await _communityRespository.editCommunity(community);
+    state = false;
+    res.fold(
+      (l) => showSnackBar(context, l.message),
+      (r) => Routemaster.of(context).pop(),
+    );
   }
 }

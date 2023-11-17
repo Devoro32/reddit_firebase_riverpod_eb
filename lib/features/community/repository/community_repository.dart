@@ -57,4 +57,21 @@ class CommunityRespository {
           (event) => Community.fromMap(event.data() as Map<String, dynamic>),
         );
   }
+
+  //https://youtu.be/B8Sx7wGiY-s?t=14938
+  FutureVoid editCommunity(Community community) async {
+    try {
+      return right(
+        _communities.doc(community.name).update(
+              community.toMap(),
+            ),
+      );
+    } on FirebaseException catch (e) {
+      throw e.message!;
+    } catch (e) {
+      return left(
+        Failure(e.toString()),
+      );
+    }
+  }
 }
