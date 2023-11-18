@@ -13,11 +13,14 @@ export 'package:reddit_fb_rp/core/common/error_text.dart';
 export 'package:reddit_fb_rp/features/auth/controller/auth_controller.dart';
 export 'package:reddit_fb_rp/features/community/controller/community_controller.dart';
 
+//delegate
+export 'package:reddit_fb_rp/features/home/delegates/search_community_delegate.dart';
+
 //drawers
 export 'package:reddit_fb_rp/features/home/drawers/community_list_drawers.dart';
 
 //features
-export 'package:reddit_fb_rp/features/home/home_screen.dart';
+export 'package:reddit_fb_rp/features/home/screens/home_screen.dart';
 
 //packages
 
