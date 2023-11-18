@@ -1,3 +1,4 @@
+import 'package:fpdart/fpdart.dart';
 import 'package:reddit_fb_rp/core/provider/storage_repository_provider.dart';
 import 'package:reddit_fb_rp/export.dart';
 //https://youtu.be/B8Sx7wGiY-s?t=10928
@@ -126,5 +127,26 @@ class CommunityController extends StateNotifier<bool> {
   //https://youtu.be/B8Sx7wGiY-s?t=16326
   Stream<List<Community>> searchCommunity(String query) {
     return _communityRespository.searchCommunity(query);
+  }
+
+  // https://youtu.be/B8Sx7wGiY-s?t=17505
+  //leave or join the community
+  void joinCommunity(Community community, BuildContext context) async {
+    final user = _ref.read(userProvider)!;
+
+    Either<Failure, void> res;
+    if (community.members.contains(user.uid)) {
+      res =
+          await _communityRespository.leaveCommunity(community.name, user.uid);
+    } else {
+      res = await _communityRespository.joinCommunity(community.name, user.uid);
+    }
+    res.fold((l) => showSnackBar(context, l.message), (r) {
+      if (community.members.contains(user.uid)) {
+        showSnackBar(context, 'Communit left successfully!');
+      } else {
+        showSnackBar(context, 'Community joined successfully!');
+      }
+    });
   }
 }

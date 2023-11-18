@@ -100,4 +100,30 @@ class CommunityRespository {
       },
     );
   }
+
+  //https://youtu.be/B8Sx7wGiY-s?t=17294
+  FutureVoid joinCommunity(String communityName, String userId) async {
+    try {
+      return right(_communities.doc(communityName).update({
+        'members': FieldValue.arrayUnion([userId]),
+      }));
+    } on FirebaseException catch (e) {
+      throw e.message!;
+    } catch (e) {
+      return left(Failure(e.toString()));
+    }
+  }
+
+  //https://youtu.be/B8Sx7wGiY-s?t=17294
+  FutureVoid leaveCommunity(String communityName, String userId) async {
+    try {
+      return right(_communities.doc(communityName).update({
+        'members': FieldValue.arrayRemove([userId]),
+      }));
+    } on FirebaseException catch (e) {
+      throw e.message!;
+    } catch (e) {
+      return left(Failure(e.toString()));
+    }
+  }
 }
