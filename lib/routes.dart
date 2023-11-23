@@ -1,4 +1,5 @@
 import 'package:reddit_fb_rp/export.dart';
+import 'package:reddit_fb_rp/features/community/screens/add_mods_screen.dart';
 
 final loggedOutRoute = RouteMap(routes: {
   '/': (_) => const MaterialPage(
@@ -20,6 +21,9 @@ final loggedInRoute = RouteMap(routes: {
       ),
   '/edit-community/:name': (routeData) => MaterialPage(
         child: EditCommunityScreen(name: routeData.pathParameters['name']!),
+      ),
+  '/add-mods/:name': (routeData) => MaterialPage(
+        child: AddModScreen(name: routeData.pathParameters['name']!),
       ),
 });
 

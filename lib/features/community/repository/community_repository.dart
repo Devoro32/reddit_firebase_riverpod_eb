@@ -126,4 +126,18 @@ class CommunityRespository {
       return left(Failure(e.toString()));
     }
   }
+  //https://youtu.be/B8Sx7wGiY-s?t=18614
+
+//https://youtu.be/B8Sx7wGiY-s?t=18625
+  FutureVoid addMods(String communityName, List<String> uids) async {
+    try {
+      return right(_communities.doc(communityName).update({
+        'mod': uids,
+      }));
+    } on FirebaseException catch (e) {
+      throw e.message!;
+    } catch (e) {
+      return left(Failure(e.toString()));
+    }
+  }
 }
