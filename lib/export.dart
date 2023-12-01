@@ -12,6 +12,7 @@ export 'package:reddit_fb_rp/core/common/error_text.dart';
 //controller
 export 'package:reddit_fb_rp/features/auth/controller/auth_controller.dart';
 export 'package:reddit_fb_rp/features/community/controller/community_controller.dart';
+export 'package:reddit_fb_rp/features/user_profile/controller/user_profile_controller.dart';
 
 //delegate
 export 'package:reddit_fb_rp/features/home/delegates/search_community_delegate.dart';
@@ -50,7 +51,9 @@ export 'package:reddit_fb_rp/core/provider/firebase_provider.dart';
 
 //Repository
 export 'package:reddit_fb_rp/features/auth/repository/auth_repository.dart';
+export 'package:reddit_fb_rp/core/provider/storage_repository_provider.dart';
 export 'package:reddit_fb_rp/features/community/repository/community_repository.dart';
+export 'package:reddit_fb_rp/features/user_profile/repository/user_profile_repository.dart';
 
 //route
 export 'package:reddit_fb_rp/routes.dart';
@@ -61,6 +64,8 @@ export 'package:reddit_fb_rp/features/community/screens/community_screen.dart';
 export 'package:reddit_fb_rp/features/community/screens/create_community_screen.dart';
 export 'package:reddit_fb_rp/features/community/screens/mod_tools_screen.dart';
 export 'package:reddit_fb_rp/features/community/screens/edit_community_screen.dart';
+export 'package:reddit_fb_rp/features/user_profile/screens/user_profile_screen.dart';
+export 'package:reddit_fb_rp/features/user_profile/screens/edit_profile_screen.dart';
 
 //theme
 export 'package:reddit_fb_rp/theme/pallete.dart';
