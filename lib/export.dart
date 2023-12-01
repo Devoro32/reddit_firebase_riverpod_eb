@@ -21,6 +21,8 @@ export 'package:reddit_fb_rp/features/home/delegates/search_community_delegate.d
 export 'package:reddit_fb_rp/features/home/drawers/community_list_drawers.dart';
 export 'package:reddit_fb_rp/features/home/drawers/profile_drawer.dart';
 
+//enum
+
 //features
 export 'package:reddit_fb_rp/features/home/screens/home_screen.dart';
 

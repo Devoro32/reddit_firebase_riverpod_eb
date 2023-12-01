@@ -1,4 +1,10 @@
 import 'package:reddit_fb_rp/export.dart';
+import 'package:reddit_fb_rp/core/enum/enum.dart';
+
+final themeNotifierProvider =
+    StateNotifierProvider<ThemeNotifier, ThemeData>((ref) {
+  return ThemeNotifier();
+});
 
 class Pallete {
   // Colors
@@ -44,6 +50,7 @@ class Pallete {
     backgroundColor: whiteColor,
   );
 }
+//https://youtu.be/B8Sx7wGiY-s?t=20305
 
 class ThemeNotifier extends StateNotifier<ThemeData> {
   ThemeMode _mode;
@@ -54,7 +61,7 @@ class ThemeNotifier extends StateNotifier<ThemeData> {
         ) {
     getTheme();
   }
-
+  //https://youtu.be/B8Sx7wGiY-s?t=20900
   ThemeMode get mode => _mode;
 
   void getTheme() async {

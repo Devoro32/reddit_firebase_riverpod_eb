@@ -39,7 +39,7 @@ class _MyAppState extends ConsumerState<MyApp> {
           data: (data) => MaterialApp.router(
             debugShowCheckedModeBanner: false,
             title: 'Reddit Tutorial',
-            theme: Pallete.darkModeAppTheme,
+            theme: ref.watch(themeNotifierProvider),
             routerDelegate: RoutemasterDelegate(routesBuilder: (context) {
               //TODO: uncomment when FireBase registration is done, going directly to home screen
               // if (data != null) {

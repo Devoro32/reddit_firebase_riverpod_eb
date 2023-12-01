@@ -17,7 +17,7 @@ class UserProfileRepository {
   CollectionReference get _users =>
       _firestore.collection(FirebaseConstants.usersCollection);
 
-  FutureVoid editCommunity(UserModel user) async {
+  FutureVoid editProfile(UserModel user) async {
     try {
       return right(
         _users.doc(user.uid).update(
