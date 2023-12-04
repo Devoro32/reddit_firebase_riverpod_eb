@@ -6,6 +6,7 @@ export 'package:reddit_fb_rp/core/constants/firebase_constants.dart';
 export 'package:reddit_fb_rp/core/common/sign_in_button.dart';
 export 'package:reddit_fb_rp/core/common/loader.dart';
 export 'package:reddit_fb_rp/core/common/error_text.dart';
+export 'package:reddit_fb_rp/core/common/post_card.dart';
 
 //community
 
@@ -13,6 +14,7 @@ export 'package:reddit_fb_rp/core/common/error_text.dart';
 export 'package:reddit_fb_rp/features/auth/controller/auth_controller.dart';
 export 'package:reddit_fb_rp/features/community/controller/community_controller.dart';
 export 'package:reddit_fb_rp/features/user_profile/controller/user_profile_controller.dart';
+export 'package:reddit_fb_rp/features/post/controller/post_controller.dart';
 
 //delegate
 export 'package:reddit_fb_rp/features/home/delegates/search_community_delegate.dart';
@@ -44,10 +46,15 @@ export 'package:routemaster/routemaster.dart';
 export 'package:dotted_border/dotted_border.dart';
 export 'package:file_picker/file_picker.dart';
 export 'dart:io';
+export 'package:uuid/uuid.dart';
+export 'package:any_link_preview/any_link_preview.dart';
+export 'package:reddit_fb_rp/responsive/responsive.dart';
 
 //model
 export 'package:reddit_fb_rp/models/user_model.dart';
 export 'package:reddit_fb_rp/models/communities_model.dart';
+export 'package:reddit_fb_rp/models/post_model.dart';
+
 //providers
 export 'package:reddit_fb_rp/core/provider/firebase_provider.dart';
 
@@ -56,6 +63,7 @@ export 'package:reddit_fb_rp/features/auth/repository/auth_repository.dart';
 export 'package:reddit_fb_rp/core/provider/storage_repository_provider.dart';
 export 'package:reddit_fb_rp/features/community/repository/community_repository.dart';
 export 'package:reddit_fb_rp/features/user_profile/repository/user_profile_repository.dart';
+export 'package:reddit_fb_rp/features/post/repository/post_repository.dart';
 
 //route
 export 'package:reddit_fb_rp/routes.dart';
@@ -68,6 +76,9 @@ export 'package:reddit_fb_rp/features/community/screens/mod_tools_screen.dart';
 export 'package:reddit_fb_rp/features/community/screens/edit_community_screen.dart';
 export 'package:reddit_fb_rp/features/user_profile/screens/user_profile_screen.dart';
 export 'package:reddit_fb_rp/features/user_profile/screens/edit_profile_screen.dart';
+export 'package:reddit_fb_rp/features/post/screen/add_post_screen.dart';
+export 'package:reddit_fb_rp/features/post/screen/add_post_type_screen.dart';
+export 'package:reddit_fb_rp/features/feed/feed_screen.dart';
 
 //theme
 export 'package:reddit_fb_rp/theme/pallete.dart';

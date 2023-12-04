@@ -15,6 +15,8 @@ class EditCommunityScreen extends ConsumerStatefulWidget {
 class _EditCommunityScreenState extends ConsumerState<EditCommunityScreen> {
   File? bannerFile;
   File? profileFile;
+  Uint8List? bannerWebFile;
+  Uint8List? profileWebFile;
 
   void selectBannerImage() async {
     final res = await pickImage();
@@ -43,6 +45,8 @@ class _EditCommunityScreenState extends ConsumerState<EditCommunityScreen> {
           bannerFile: bannerFile,
           context: context,
           community: community,
+          profileWebFile: profileWebFile,
+          bannerWebFile: bannerWebFile,
         );
   }
 

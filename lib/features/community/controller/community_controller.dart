@@ -86,29 +86,33 @@ class CommunityController extends StateNotifier<bool> {
   void editCommunity({
     required File? profileFile,
     required File? bannerFile,
+    required Uint8List? profileWebFile,
+    required Uint8List? bannerWebFile,
     required BuildContext context,
     required Community community,
   }) async {
     state = true;
-    if (profileFile != null) {
+    if (profileFile != null || profileWebFile != null) {
       //https://youtu.be/B8Sx7wGiY-s?t=15287
       //store the files in communities/profiles/meme
       final res = await _storageRepository.storeFile(
         path: 'communities/profile',
         id: community.name,
         file: profileFile,
+        webFile: profileWebFile,
       );
       res.fold(
         (l) => showSnackBar(context, l.message),
         (r) => community = community.copyWith(avatar: r),
       );
     }
-    if (bannerFile != null) {
+    if (bannerFile != null || bannerWebFile != null) {
       //https://youtu.be/B8Sx7wGiY-s?t=15429
       final res = await _storageRepository.storeFile(
         path: 'communities/banner',
         id: community.name,
         file: bannerFile,
+        webFile: bannerWebFile,
       );
       res.fold(
         (l) => showSnackBar(context, l.message),

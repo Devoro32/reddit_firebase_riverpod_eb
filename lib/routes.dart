@@ -44,6 +44,11 @@ final loggedInRoute = RouteMap(routes: {
           uid: routeData.pathParameters['uid']!,
         ),
       ),
+  '/add-post/:type': (routeData) => MaterialPage(
+        child: AddPostTypeScreen(
+          type: routeData.pathParameters['uid']!,
+        ),
+      ),
 });
 
 //login route

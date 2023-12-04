@@ -1,5 +1,6 @@
 //https://youtu.be/B8Sx7wGiY-s?t=20149
 import 'package:reddit_fb_rp/export.dart';
+import 'dart:typed_data';
 
 final userProfileControllerProvider =
     StateNotifierProvider<UserProfileController, bool>((ref) {

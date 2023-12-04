@@ -4,13 +4,8 @@ import 'package:reddit_fb_rp/export.dart';
 
 class HomeScreen extends ConsumerWidget {
   const HomeScreen({super.key});
-
   void displayDrawer(BuildContext context) {
     Scaffold.of(context).openDrawer();
-  }
-
-  void displayEndDrawer(BuildContext context) {
-    Scaffold.of(context).openEndDrawer();
   }
 
   @override
@@ -29,31 +24,25 @@ class HomeScreen extends ConsumerWidget {
         }),
         actions: [
           IconButton(
-            onPressed: () {
-              showSearch(
-                  context: context, delegate: SearchCommunityDelegate(ref));
-            },
+            onPressed: () {},
             icon: const Icon(Icons.search),
           ),
-          Builder(builder: (context) {
-            return IconButton(
-              onPressed: () => displayEndDrawer(context),
-              icon: const CircleAvatar(
-                  // backgroundColor: Colors.white,
-                  backgroundImage:
-                      //  AssetImage(
-                      //   Constants.googlepath,
-                      // )
+          IconButton(
+            onPressed: () {},
+            icon: const CircleAvatar(
+                // backgroundColor: Colors.white,
+                backgroundImage:
+                    //  AssetImage(
+                    //   Constants.googlepath,
+                    // )
 
-                      //TODO: replace the picture with the one coming from firebase
-                      //NetworkImage(user.profilePic),
-                      NetworkImage(Constants.avatarDefault)),
-            );
-          })
+                    //TODO: replace the picture with the one coming from firebase
+                    //NetworkImage(user.profilePic),
+                    NetworkImage(Constants.avatarDefault)),
+          )
         ],
       ),
       drawer: CommunityListDrawer(),
-      endDrawer: const ProfileDrawer(),
       body: const Center(child: Text('text')
           // Text(user.name),
           ),
